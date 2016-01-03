@@ -11,7 +11,7 @@
 
   <groupId>com.jakewharton.picasso</groupId>
   <artifactId>picasso2-okhttp3-downloader</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>Picasso 2 OkHttp 3 Client</name>
   <description>A OkHttp 3 client implementation for Picasso 2.</description>
