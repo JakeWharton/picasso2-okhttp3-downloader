@@ -8,12 +8,13 @@ A OkHttp 3 downloader implementation for Picasso 2.
 Usage
 -----
 
-Create an instance wrapping your `OkHttpClient` and pass to `setDownloader`.
+Create an `OkHttp3Downloader` instance wrapping your `OkHttpClient` or `Call.Factory` and pass it
+to `downloader`.
 
 ```java
 OkHttpClient client = // ...
 Picasso picasso = new Picasso.Builder()
-    .setDownloader(new OkHttp3Downloader(client))
+    .downloader(new OkHttp3Downloader(client))
     .build()
 ```
 
@@ -26,14 +27,14 @@ Download
 
 Gradle:
 ```groovy
-compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.0'
+compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.1'
 ```
 or Maven:
 ```xml
 <dependency>
   <groupId>com.jakewharton.picasso</groupId>
   <artifactId>picasso2-okhttp3-downloader</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 

@@ -37,7 +37,7 @@ import static org.junit.Assert.fail;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = Config.NONE)
-public class OkHttpDownloaderTest {
+public class OkHttp3DownloaderTest {
   private static final int NO_CACHE = 1 << 0;
   private static final int NO_STORE = 1 << 1;
   private static final int OFFLINE = 1 << 2;

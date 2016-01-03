@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
+import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.ResponseBody;
@@ -48,7 +49,8 @@ public final class OkHttp3Downloader implements Downloader {
         .build();
   }
 
-  private final OkHttpClient client;
+  private final Call.Factory client;
+  private final Cache cache;
 
   /**
    * Create new downloader that uses OkHttp. This will install an image cache into your application
@@ -91,10 +93,12 @@ public final class OkHttp3Downloader implements Downloader {
 
   public OkHttp3Downloader(OkHttpClient client) {
     this.client = client;
+    this.cache = client.cache();
   }
 
-  public OkHttpClient getClient() {
-    return client;
+  public OkHttp3Downloader(Call.Factory client) {
+    this.client = client;
+    this.cache = null;
   }
 
   @Override public Response load(Uri uri, int networkPolicy) throws IOException {
@@ -134,7 +138,6 @@ public final class OkHttp3Downloader implements Downloader {
   }
 
   @Override public void shutdown() {
-    Cache cache = client.cache();
     if (cache != null) {
       try {
         cache.close();
