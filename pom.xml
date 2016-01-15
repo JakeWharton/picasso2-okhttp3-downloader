@@ -11,7 +11,7 @@
 
   <groupId>com.jakewharton.picasso</groupId>
   <artifactId>picasso2-okhttp3-downloader</artifactId>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.3-SNAPSHOT</version>
 
   <name>Picasso 2 OkHttp 3 Client</name>
   <description>A OkHttp 3 client implementation for Picasso 2.</description>
@@ -50,7 +50,7 @@
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>okhttp</artifactId>
-      <version>3.0.0-RC1</version>
+      <version>3.0.1</version>
     </dependency>
     <dependency>
       <groupId>com.google.android</groupId>
@@ -73,7 +73,7 @@
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>mockwebserver</artifactId>
-      <version>3.0.0-RC1</version>
+      <version>3.0.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
