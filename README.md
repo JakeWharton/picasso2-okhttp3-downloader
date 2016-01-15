@@ -13,7 +13,7 @@ to `downloader`.
 
 ```java
 OkHttpClient client = // ...
-Picasso picasso = new Picasso.Builder()
+Picasso picasso = new Picasso.Builder(context)
     .downloader(new OkHttp3Downloader(client))
     .build()
 ```
