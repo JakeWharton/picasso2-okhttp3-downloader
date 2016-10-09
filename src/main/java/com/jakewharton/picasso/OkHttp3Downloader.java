@@ -19,7 +19,7 @@ public final class OkHttp3Downloader implements Downloader {
   private static final int MIN_DISK_CACHE_SIZE = 5 * 1024 * 1024; // 5MB
   private static final int MAX_DISK_CACHE_SIZE = 50 * 1024 * 1024; // 50MB
 
-  private static File createDefaultCacheDir(Context context) {
+  private static File defaultCacheDir(Context context) {
     File cache = new File(context.getApplicationContext().getCacheDir(), PICASSO_CACHE);
     if (!cache.exists()) {
       //noinspection ResultOfMethodCallIgnored
@@ -43,9 +43,19 @@ public final class OkHttp3Downloader implements Downloader {
     return Math.max(Math.min(size, MAX_DISK_CACHE_SIZE), MIN_DISK_CACHE_SIZE);
   }
 
-  private static OkHttpClient defaultOkHttpClient(File cacheDir, long maxSize) {
+  /**
+   * Creates a {@link Cache} that would have otherwise been created by calling
+   * {@link #OkHttp3Downloader(Context)}. This allows you to build your own {@link OkHttpClient}
+   * while still getting the default disk cache.
+   */
+  public static Cache createDefaultCache(Context context) {
+    File dir = defaultCacheDir(context);
+    return new Cache(dir, calculateDiskCacheSize(dir));
+  }
+
+  private static OkHttpClient createOkHttpClient(File cacheDir, long maxSize) {
     return new OkHttpClient.Builder()
-        .cache(new okhttp3.Cache(cacheDir, maxSize))
+        .cache(new Cache(cacheDir, maxSize))
         .build();
   }
 
@@ -57,7 +67,7 @@ public final class OkHttp3Downloader implements Downloader {
    * cache directory.
    */
   public OkHttp3Downloader(Context context) {
-    this(createDefaultCacheDir(context));
+    this(defaultCacheDir(context));
   }
 
   /**
@@ -77,7 +87,7 @@ public final class OkHttp3Downloader implements Downloader {
    * @param maxSize The size limit for the cache.
    */
   public OkHttp3Downloader(final Context context, final long maxSize) {
-    this(createDefaultCacheDir(context), maxSize);
+    this(defaultCacheDir(context), maxSize);
   }
 
   /**
@@ -88,7 +98,7 @@ public final class OkHttp3Downloader implements Downloader {
    * @param maxSize The size limit for the cache.
    */
   public OkHttp3Downloader(File cacheDir, long maxSize) {
-    this(defaultOkHttpClient(cacheDir, maxSize));
+    this(createOkHttpClient(cacheDir, maxSize));
   }
 
   public OkHttp3Downloader(OkHttpClient client) {
