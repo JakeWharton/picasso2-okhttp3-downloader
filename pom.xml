@@ -50,7 +50,7 @@
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>okhttp</artifactId>
-      <version>3.2.0</version>
+      <version>3.4.1</version>
     </dependency>
     <dependency>
       <groupId>com.google.android</groupId>
@@ -73,13 +73,13 @@
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>mockwebserver</artifactId>
-      <version>3.2.0</version>
+      <version>3.4.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.google.truth</groupId>
       <artifactId>truth</artifactId>
-      <version>0.28</version>
+      <version>0.30</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
