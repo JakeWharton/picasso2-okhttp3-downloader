@@ -27,14 +27,14 @@ Download
 
 Gradle:
 ```groovy
-compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.2'
+compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
 ```
 or Maven:
 ```xml
 <dependency>
   <groupId>com.jakewharton.picasso</groupId>
   <artifactId>picasso2-okhttp3-downloader</artifactId>
-  <version>1.0.2</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 

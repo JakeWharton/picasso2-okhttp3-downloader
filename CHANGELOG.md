@@ -1,6 +1,13 @@
 Change Log
 ==========
 
+Version 1.1.0 *(2016-10-09)*
+----------------------------
+
+ * Expose a static method for creating the default `Cache`. This allows construction of
+   your own `OkHttpClient` with whatever configuration while also retaining the default cache.
+
+
 Version 1.0.2 *(2016-01-15)*
 ----------------------------
 
