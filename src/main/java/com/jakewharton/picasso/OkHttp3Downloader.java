@@ -33,7 +33,14 @@ public final class OkHttp3Downloader implements Downloader {
 
     try {
       StatFs statFs = new StatFs(dir.getAbsolutePath());
-      long available = ((long) statFs.getBlockCount()) * statFs.getBlockSize();
+
+      long available;
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+        available = statFs.getBlockCountLong() * statFs.getBlockSizeLong();
+      } else {
+        available = ((long) statFs.getBlockCount()) * statFs.getBlockSize();
+      }
+
       // Target 2% of the total space.
       size = available / 50;
     } catch (IllegalArgumentException ignored) {
