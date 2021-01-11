@@ -3,6 +3,8 @@ Picasso 2 OkHttp 3 Downloader
 
 A OkHttp 3 downloader implementation for Picasso 2.
 
+⚠️ Use only with Picasso 2.5.2 or lower, otherwise images won't load. In Picasso 2.71828 and higher, there's now built-in equivalent `com.squareup.picasso.OkHttp3Downloader`. 
+
 
 
 Usage
